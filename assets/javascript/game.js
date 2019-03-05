@@ -24,10 +24,10 @@
 var computerChoice = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
 console.log(computerChoice);
 
-// Creates a variable for how many crystals we have on the page
-// var numOfCrystals = ["", "", "", ""];
-
-var counter = 0;
+// variables for wins, losses, and players score
+var wins = 0;
+var losses = 0; 
+var playerScore = 0;
 
 // This will give each crystal a random hidden value between 1 - 12. The Math.floor
 
@@ -38,6 +38,7 @@ var crystalValue = [
     Math.floor(Math.random() * 12) + 1];
 
 console.log(crystalValue);
+
 
 ///////////////////         CRYSTAL ONE         ///////////////////
 // For each iteration, we will create an imageCrystal
@@ -74,6 +75,7 @@ imageCrystalOne.attr("src", "assets/images/yellow.png");
 imageCrystalOne.attr("data-crystalvalue", crystalValue[2]);
 $("#crystals").append(imageCrystalOne);
 
+
 ///////////////////         CRYSTAL FOUR         ///////////////////
 var imageCrystalOne = $("<img>");
 imageCrystalOne.addClass("crystal-image");
@@ -92,20 +94,27 @@ $(".crystal-image").on("click", function () {
     crystalValue = parseInt(crystalValue);
     // We then add the crystalValue to the user's "counter" which is a global variable.
     // Every click, from every crystal adds to the global counter.
-    counter += crystalValue;
+    playerScore += crystalValue;
+    console.log(playerScore);
 
-    // All of the same game win-lose logic applies. So the rest remains unchanged.
-    alert("New score: " + counter);
-
-    if (counter === computerChoice) {
+    if (playerScore === computerChoice) {
         alert("You win!");
+        wins++;
     }
 
-    else if (counter >= computerChoice) {
-        alert("You lose!!");
+    else if (playerScore >= computerChoice) {
+        alert("You guessed " + playerScore + ", you were over by " + (playerScore - computerChoice) + ".");
+        losses++;
     }
+
+    var computerChoiceJS = document.getElementById("computerChoiceHTML");
+    var newScoreJS = document.getElementById("newScoreHTML");
+    var winsJS = document.getElementById("winsHTML");
+    var lossesJS = document.getElementById("lossesHTML");
+
+    computerChoiceJS.textContent = "Computer Choice: " + computerChoice;
+    newScoreJS.textContent = "Current Score: " + playerScore;
+    winsJS.textContent = "Wins: " + wins;
+    lossesJS.textContent = "Losses: " + losses;
 })
 
-var computerChoiceJS = document.getElementById("computerChoiceHTML");
-
-computerChoiceJS.textContent = "Computer Choice: " + computerChoice;
