@@ -1,6 +1,4 @@
-//      * When the game begins again, the player should see a new random number. Also, all the crystals will have four new hidden values. Of course, the user's score (and score counter) will reset to zero.
-
-// // Chooses a number between 19 - 120.
+// Chooses a number between 19 - 120.
 var computerChoice = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
 
 // variables for wins, losses, and players score
@@ -60,6 +58,7 @@ imageCrystalFour.attr("src", "assets/images/red gem.png");
 imageCrystalFour.attr("data-crystalvalue", crystalValue[3]);
 $("#crystals").append(imageCrystalFour);
 
+
 // This code runs whenever a crystal is clicked
 $(".crystal-image").on("click", function () {
 
@@ -75,11 +74,19 @@ $(".crystal-image").on("click", function () {
         wins++;
         playerScore = 0;
         computerChoice = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
+        // $("#crystals").empty();
+
         crystalValue = [
             Math.floor(Math.random() * 12) + 1,
             Math.floor(Math.random() * 12) + 1,
             Math.floor(Math.random() * 12) + 1,
             Math.floor(Math.random() * 12) + 1];
+
+        imageCrystalOne.attr("data-crystalvalue", crystalValue[0]);
+        imageCrystalTwo.attr("data-crystalvalue", crystalValue[1]);
+        imageCrystalThree.attr("data-crystalvalue", crystalValue[2]);
+        imageCrystalFour.attr("data-crystalvalue", crystalValue[3]);
+
         console.log("Computer wants: " + computerChoice);
         console.log("Crystals are worth: " + crystalValue);
 
@@ -91,11 +98,17 @@ $(".crystal-image").on("click", function () {
         losses++;
         playerScore = 0;
         computerChoice = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
+
         crystalValue = [
             Math.floor(Math.random() * 12) + 1,
             Math.floor(Math.random() * 12) + 1,
             Math.floor(Math.random() * 12) + 1,
             Math.floor(Math.random() * 12) + 1];
+        imageCrystalOne.attr("data-crystalvalue", crystalValue[0]);
+        imageCrystalTwo.attr("data-crystalvalue", crystalValue[1]);
+        imageCrystalThree.attr("data-crystalvalue", crystalValue[2]);
+        imageCrystalFour.attr("data-crystalvalue", crystalValue[3]);
+
         console.log("Computer wants: " + computerChoice);
         console.log("Crystals are worth: " + crystalValue);
     }

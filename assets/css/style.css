@@ -3,7 +3,7 @@ body{
     padding: 50px;
     margin: 20px;
     text-align: center;
-    background-image: url("https://images.all-free-download.com/images/graphiclarge/concept_geometric_shapes_background_vector_536424.jpg")
+    background-image: url("https://images.all-free-download.com/images/graphiclarge/concept_geometric_shapes_background_vector_536424.jpg");
 }
 
 .header{
@@ -23,7 +23,7 @@ h2{
 
 h3{
     margin-top: 20px;
-    font-size: 20px;
+    font-size: 25px;
 }
 
 p{
