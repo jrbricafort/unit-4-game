@@ -1,11 +1,15 @@
 body{
+    color: bisque;
     padding: 50px;
     margin: 20px;
+    text-align: center;
+    background-image: url("https://images.all-free-download.com/images/graphiclarge/concept_geometric_shapes_background_vector_536424.jpg")
+    
+    /* url("http://dl.maxpixel.freegreatpicture.com/?f=background-3048876_1920.jpg&type=View&token=f8787d963fefaa71a01ca0b57ab2b296&pid=3048876"); */
 }
 
 .header{
     font-size: 50px;
-    margin-bottom: 20px;
 }
 
 .crystal-image {
@@ -15,7 +19,13 @@ body{
 
 h2{
     font-size: 35px;
-    margin-bottom: 20px;  
+    margin: 40px, 0, 40px, 0;
+    padding: 20px;
+}
+
+h3{
+    margin-top: 20px;
+    font-size: 20px;
 }
 
 p{

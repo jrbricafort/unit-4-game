@@ -1,24 +1,4 @@
-//    * There will be four crystals displayed as buttons on the page.
-
-//    * The player will be shown a random number at the start of the game.
-
-//    * When the player clicks on a crystal, it will add a specific amount of points to the player's total score. 
-
-//      * Your game will hide this amount until the player clicks a crystal.
-//      * When they do click one, update the player's score counter.
-
-//    * The player wins if their total score matches the random number from the beginning of the game.
-
-//    * The player loses if their score goes above the random number.
-
-//    * The game restarts whenever the player wins or loses.
-
 //      * When the game begins again, the player should see a new random number. Also, all the crystals will have four new hidden values. Of course, the user's score (and score counter) will reset to zero.
-
-//    * The app should show the number of games the player wins and loses. To that end, do not refresh the page as a means to restart the game.
-
-// ##### Option 1 Game design notes
-
 
 // Chooses a number between 19 - 120.
 var computerChoice = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
@@ -26,10 +6,11 @@ console.log(computerChoice);
 
 // variables for wins, losses, and players score
 var wins = 0;
-var losses = 0; 
+var losses = 0;
 var playerScore = 0;
 
-// This will give each crystal a random hidden value between 1 - 12. The Math.floor
+
+// This will give each crystal a random hidden value between 1 - 12
 
 var crystalValue = [
     Math.floor(Math.random() * 12) + 1,
@@ -37,51 +18,57 @@ var crystalValue = [
     Math.floor(Math.random() * 12) + 1,
     Math.floor(Math.random() * 12) + 1];
 
+function initialize() {
+    computerChoice = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
+    crystalValue[0] = Math.floor(Math.random() * 12) + 1;
+    crystalValue[1] = Math.floor(Math.random() * 12) + 1;
+    crystalValue[2] = Math.floor(Math.random() * 12) + 1;
+    crystalValue[3] = Math.floor(Math.random() * 12) + 1;
+}
+
+initialize()
 console.log(crystalValue);
 
-
 ///////////////////         CRYSTAL ONE         ///////////////////
-// For each iteration, we will create an imageCrystal
-// var imageCrystal = ["images/green.png","images/orange.png","images/yellow.png", "images/red gem.png"];
+// Each crystal will be named imageCrystal#
 var imageCrystalOne = $("<img>");
 
-// First each crystal will be given the class ".crystal-image".
-// This will allow the CSS to take effect.
+// Each crystal will be given the class ".crystal-image" so it can be referenced via CSS
 imageCrystalOne.addClass("crystal-image");
 
-// Each imageCrystal will be given a src link to the crystal image
+// Each imageCrystal will be assigned the image
 imageCrystalOne.attr("src", "assets/images/green.png");
 
-// Each imageCrystal will be given a data attribute called data-crystalValue.
-// This data attribute will be set equal to the array value.
+// Each imageCrystal will be given a data attribute called data-crystalValue with an array value.
 imageCrystalOne.attr("data-crystalvalue", crystalValue[0]);
 
-// Lastly, each crystal image (with all it classes and attributes) will get added to the page.
+// Each crystal image will get added to the page.
 $("#crystals").append(imageCrystalOne);
 
 
 ///////////////////         CRYSTAL TWO         ///////////////////
-var imageCrystalOne = $("<img>");
-imageCrystalOne.addClass("crystal-image");
-imageCrystalOne.attr("src", "assets/images/orange.png");
-imageCrystalOne.attr("data-crystalvalue", crystalValue[1]);
-$("#crystals").append(imageCrystalOne);
+var imageCrystalTwo = $("<img>");
+imageCrystalTwo.addClass("crystal-image");
+imageCrystalTwo.attr("src", "assets/images/orange.png");
+imageCrystalTwo.attr("data-crystalvalue", crystalValue[1]);
+$("#crystals").append(imageCrystalTwo);
 
 
 ///////////////////         CRYSTAL THREE         ///////////////////
-var imageCrystalOne = $("<img>");
-imageCrystalOne.addClass("crystal-image");
-imageCrystalOne.attr("src", "assets/images/yellow.png");
-imageCrystalOne.attr("data-crystalvalue", crystalValue[2]);
-$("#crystals").append(imageCrystalOne);
+var imageCrystalThree = $("<img>");
+imageCrystalThree.addClass("crystal-image");
+imageCrystalThree.attr("src", "assets/images/yellow.png");
+imageCrystalThree.attr("data-crystalvalue", crystalValue[2]);
+$("#crystals").append(imageCrystalThree);
 
 
 ///////////////////         CRYSTAL FOUR         ///////////////////
-var imageCrystalOne = $("<img>");
-imageCrystalOne.addClass("crystal-image");
-imageCrystalOne.attr("src", "assets/images/red gem.png");
-imageCrystalOne.attr("data-crystalvalue", crystalValue[3]);
-$("#crystals").append(imageCrystalOne);
+var imageCrystalFour = $("<img>");
+imageCrystalFour.addClass("crystal-image");
+imageCrystalFour.attr("src", "assets/images/red gem.png");
+imageCrystalFour.attr("data-crystalvalue", crystalValue[3]);
+$("#crystals").append(imageCrystalFour);
+
 
 $(".crystal-image").on("click", function () {
 
@@ -100,11 +87,17 @@ $(".crystal-image").on("click", function () {
     if (playerScore === computerChoice) {
         alert("You win!");
         wins++;
+        playerScore = 0;
+        computerChoice = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
+        crystalValue = Math.floor(Math.random() * 12) + 1;
     }
 
     else if (playerScore >= computerChoice) {
         alert("You guessed " + playerScore + ", you were over by " + (playerScore - computerChoice) + ".");
         losses++;
+        playerScore = 0;
+        computerChoice = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
+        crystalValue = Math.floor(Math.random() * 12) + 1;
     }
 
     var computerChoiceJS = document.getElementById("computerChoiceHTML");
@@ -117,4 +110,5 @@ $(".crystal-image").on("click", function () {
     winsJS.textContent = "Wins: " + wins;
     lossesJS.textContent = "Losses: " + losses;
 })
+
 
