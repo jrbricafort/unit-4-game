@@ -54,10 +54,12 @@ $("#crystals").append(imageCrystalThree);
 ///////////////////         CRYSTAL FOUR         ///////////////////
 var imageCrystalFour = $("<img>");
 imageCrystalFour.addClass("crystal-image");
+imageCrystalFour.attr("class", "crystal-image");
+
 imageCrystalFour.attr("src", "assets/images/red gem.png");
 imageCrystalFour.attr("data-crystalvalue", crystalValue[3]);
 $("#crystals").append(imageCrystalFour);
-
+console.log(this)
 
 // This code runs whenever a crystal is clicked
 $(".crystal-image").on("click", function () {
@@ -113,10 +115,10 @@ $(".crystal-image").on("click", function () {
         console.log("Crystals are worth: " + crystalValue);
     }
 
-    var computerChoiceJS = document.getElementById("computerChoiceHTML");
-    var newScoreJS = document.getElementById("newScoreHTML");
-    var winsJS = document.getElementById("winsHTML");
-    var lossesJS = document.getElementById("lossesHTML");
+    var computerChoiceJS = $("#computerChoiceHTML");
+    var newScoreJS = $("#newScoreHTML");
+    var winsJS = $("#winsHTML");
+    var lossesJS = $("#lossesHTML");
 
     computerChoiceJS.textContent = "Computer Choice: " + computerChoice;
     newScoreJS.textContent = "Current Score: " + playerScore;

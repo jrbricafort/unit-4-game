@@ -5,7 +5,7 @@ body{
     text-align: center;
     background-image: url("https://images.all-free-download.com/images/graphiclarge/concept_geometric_shapes_background_vector_536424.jpg");
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
 }
 
 .header{
