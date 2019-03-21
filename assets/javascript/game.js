@@ -6,6 +6,10 @@ var wins = 0;
 var losses = 0;
 var playerScore = 0;
 
+var computerChoiceJS = $("#computerChoiceHTML");
+var newScoreJS = $("#newScoreHTML");
+var winsJS = $("#winsHTML");
+var lossesJS = $("#lossesHTML");
 
 // This will give each crystal a random hidden value between 1 - 12
 var crystalValue = [
@@ -115,15 +119,32 @@ $(".crystal-image").on("click", function () {
         console.log("Crystals are worth: " + crystalValue);
     }
 
-    var computerChoiceJS = $("#computerChoiceHTML");
-    var newScoreJS = $("#newScoreHTML");
-    var winsJS = $("#winsHTML");
-    var lossesJS = $("#lossesHTML");
+    // var computerChoiceJS = $("#computerChoiceHTML");
+    // var newScoreJS = $("#newScoreHTML");
+    // var winsJS = $("#winsHTML");
+    // var lossesJS = $("#lossesHTML");
 
-    computerChoiceJS.textContent = "Computer Choice: " + computerChoice;
-    newScoreJS.textContent = "Current Score: " + playerScore;
-    winsJS.textContent = "Wins: " + wins;
-    lossesJS.textContent = "Losses: " + losses;
+    // computerChoiceJS.textContent = "Computer Choice: " + computerChoice;
+    // newScoreJS.textContent = "Current Score: " + playerScore;
+    // winsJS.textContent = "Wins: " + wins;
+    // lossesJS.textContent = "Losses: " + losses;
+
+    $("#computerChoiceHTML").text("Computer Choice: " + computerChoice);
+    $("#newScoreHTML").text("Current Score: " + playerScore);
+    $("#winsHTML").text("Wins: " + wins);
+    $("#lossesHTML").text("Losses: " + losses);
 })
 
+    $("#computerChoiceHTML").text("Computer Choice: " + computerChoice);
+    $("#newScoreHTML").text("Current Score: " + playerScore);
+    $("#winsHTML").text("Wins: " + wins);
+    $("#lossesHTML").text("Losses: " + losses);
 
+// $("#computerChoiceHTML").text("Computer Choice: " + computerChoice);
+// $("#newScoreHTML").text("Computer Choice: " + computerChoice);
+// $("#winsHTML").text("Computer Choice: " + computerChoice);
+// $("#lossesHTML").text("Computer Choice: " + computerChoice);
+
+// newScoreJS.textContent = "Current Score: " + playerScore;
+// winsJS.textContent = "Wins: " + wins;
+// lossesJS.textContent = "Losses: " + losses;
