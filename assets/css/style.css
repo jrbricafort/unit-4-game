@@ -1,4 +1,4 @@
-body{
+body {
     color: bisque;
     padding: 50px;
     margin: 20px;
@@ -8,7 +8,7 @@ body{
     background-size: cover;
 }
 
-.header{
+.header {
     font-size: 50px;
 }
 
@@ -17,18 +17,23 @@ body{
     height: 300px;
 }
 
-h2{
+.crystal-image:hover {
+    width: 350px;
+    height: 350px;
+}
+
+h2 {
     font-size: 35px;
     margin: 40px, 0, 40px, 0;
     padding: 20px;
 }
 
-h3{
+h3 {
     margin-top: 20px;
     font-size: 25px;
 }
 
-p{
+p {
     font-size: 25px;
     margin-top: 20px;
 }
